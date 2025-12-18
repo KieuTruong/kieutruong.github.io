@@ -36,19 +36,22 @@ iframe {
 <div class="col-md-12 col-sm-12">
 <h4>Carbon nanostructure based broadband light absorber</h4>
 
-Example description
+TBA
+</div>
 </div>
 
+<div class="jumbotron">
 <div class="col-md-12 col-sm-12">
 <h4>Aligned CNT sheet for liquid crystal display</h4>
 
-Example description
+TBA
+</div>
 </div>
 
+<div class="jumbotron">
 <div class="col-md-12 col-sm-12">
-<h4>CNT yarns for smart actuators</h4>
+<h4>CNT fibers for smart actuators</h4>
 
-Example description
+TBA
 </div>
-
 </div>
