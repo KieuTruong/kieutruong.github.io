@@ -33,7 +33,7 @@ iframe {
 ## Research
 
 <div class="jumbotron">
-<div class="col-md-12 col-sm-12">
+
 <div class="col-12 text-center">
 <h4>Carbon nanostructure based broadband light absorber</h4>
 
@@ -46,13 +46,13 @@ My research interest <br/>
 </center>
 </div>
 </div>
-<br/>
+
 
 </div>
 </div>
 
 <div class="jumbotron">
-<div class="col-md-12 col-sm-12">
+
 <div class="col-12 text-center">
 <h4>Aligned CNT sheet for liquid crystal display</h4>
 
@@ -65,13 +65,13 @@ My research interest <br/>
 </center>
 </div>
 </div>
-<br/>
+
 
 </div>
 </div>
 
 <div class="jumbotron">
-<div class="col-md-12 col-sm-12">
+
 <div class="col-12 text-center">
 <h4>CNT fibers for smart actuators</h4>
 
@@ -84,6 +84,6 @@ My research interest <br/>
 </center>
 </div>
 </div>
-<br/>
+
 </div>
 </div>
