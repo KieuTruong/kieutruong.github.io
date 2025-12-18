@@ -1,9 +1,9 @@
 # Site settings
-title: Richard Feynman
-email: richard@university.edu
-description: Academic webpage of Dr. Richard Feynman
+title: Thuy-Kieu Truong
+email: 05vinamilk@gmail.com
+description: Academic webpage of Dr. Thuy-Kieu Truong
 baseurl: ""
-url: ""
+url: "kieutruong.github.io"
 
 # Google analytics ID: Uncomment and your own, if you like
 # google_analytics: XX
