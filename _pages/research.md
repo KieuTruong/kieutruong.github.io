@@ -33,29 +33,33 @@ iframe {
 ## Research
 
 <div class="jumbotron">
- <div class="row">
-  <div class="col-12 text-center">
+<div class="col-md-12 col-sm-12">
+<div class="col-12 text-center">
+<h4>Carbon nanostructure based broadband light absorber</h4>
 
-  <h4>Carbon nanostructure–based broadband light absorber</h4>
+<div class="container">
+<div class="row">
+<center>
+<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+My research interest <br/>
 
-  <img
-        src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png"
-        class="img-fluid my-3"
-        alt="Carbon nanostructure based broadband light absorber"/>
+</center>
+</div>
+</div>
 <br/>
 
-</div>
 </div>
 </div>
 
 <div class="jumbotron">
 <div class="col-md-12 col-sm-12">
+<div class="col-12 text-center">
 <h4>Aligned CNT sheet for liquid crystal display</h4>
 
 <div class="container">
 <div class="row">
 <center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/cnt sheet.png" width="100%"/><br/>
 My research interest <br/>
 
 </center>
@@ -68,18 +72,18 @@ My research interest <br/>
 
 <div class="jumbotron">
 <div class="col-md-12 col-sm-12">
+<div class="col-12 text-center">
 <h4>CNT fibers for smart actuators</h4>
 
 <div class="container">
 <div class="row">
 <center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/smart actuators.png" width="100%"/><br/>
 My research interest <br/>
 
 </center>
 </div>
 </div>
 <br/>
-
 </div>
 </div>
