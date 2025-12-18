@@ -29,8 +29,8 @@ contact: >
 
 # Pages shown in navbar
 nav_pages:
-  - name: research
   - name: about
+  - name: research
   - name: publications
   - name: teaching
 
