@@ -41,7 +41,6 @@ iframe {
 <div class="row">
 <center>
 <img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
-My research interest <br/>
 
 </center>
 </div>
@@ -60,7 +59,7 @@ My research interest <br/>
 <div class="row">
 <center>
 <img src="{{ site.url }}{{ site.baseurl }}/images/cnt sheet.png" width="100%"/><br/>
-My research interest <br/>
+
 
 </center>
 </div>
@@ -79,7 +78,7 @@ My research interest <br/>
 <div class="row">
 <center>
 <img src="{{ site.url }}{{ site.baseurl }}/images/smart actuators.png" width="100%"/><br/>
-My research interest <br/>
+
 
 </center>
 </div>
