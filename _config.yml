@@ -32,7 +32,7 @@ nav_pages:
   - name: research
   - name: publications
   - name: teaching
-  - name: CV
+  - name: cv
 
 include:
   - .htaccess
