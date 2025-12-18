@@ -36,7 +36,17 @@ iframe {
 <div class="col-md-12 col-sm-12">
 <h4>Carbon nanostructure based broadband light absorber</h4>
 
-TBA
+<div class="container">
+<div class="row">
+<center>
+<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+My research interest <br/>
+
+</center>
+</div>
+</div>
+<br/>
+
 </div>
 </div>
 
@@ -44,7 +54,17 @@ TBA
 <div class="col-md-12 col-sm-12">
 <h4>Aligned CNT sheet for liquid crystal display</h4>
 
-TBA
+<div class="container">
+<div class="row">
+<center>
+<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+My research interest <br/>
+
+</center>
+</div>
+</div>
+<br/>
+
 </div>
 </div>
 
@@ -52,6 +72,16 @@ TBA
 <div class="col-md-12 col-sm-12">
 <h4>CNT fibers for smart actuators</h4>
 
-TBA
+<div class="container">
+<div class="row">
+<center>
+<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
+My research interest <br/>
+
+</center>
+</div>
+</div>
+<br/>
+
 </div>
 </div>
