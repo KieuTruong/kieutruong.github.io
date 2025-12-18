@@ -7,6 +7,7 @@ permalink: /about/
 
 ## About
 
+{% for member in site.data.pi %}
 
 <div class="jumbotron">
 <div class="row">
