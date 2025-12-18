@@ -12,17 +12,19 @@ url: "kieutruong.github.io"
 
 # Footer info
 affiliation: >
-  Richard Feynman<br/>
-  Professor of Physics<br/>
-  California Institute of Technology
+  Thuy-Kieu Truong<br/>
+  Postdoctoral Researcher<br/>
+  Manufacturing and Metrology Laboratory
+  Mechanical Engineering Department
+  Hanbant National University
 
 location: >
-  California Institute of Technology<br/>
-  1200 E California Blvd<br/>
-  Pasadena, CA 91125
+  Hanbat National University<br/>
+  Hanbat National University<br/>
+  Daejeon 34158, South Korea
 
 contact: >
-  <a href="mailto:richard@university.edu" target="_blank"><i class="fa fa-envelope fa-1x"></i> Contact Richard via email</a> <br/>
+  <a href="mailto:05vinamilk@gmail.com" target="_blank"><i class="fa fa-envelope fa-1x"></i> Contact Thuy-Kieu Truong via email</a> <br/>
   <a href="https://github.com/sbryngelson/academic-website-template"><i class="fa fa-github fa-1x"></i> Use this site as a template!</a>
 
 # Pages shown in navbar
@@ -31,10 +33,10 @@ nav_pages:
   - name: publications
   - name: talks
   - name: research
-  - name: software
-  - name: team
+  #- name: software
+  #- name: team
   - name: teaching
-  - name: blogs
+  - name: CV
 
 include:
   - .htaccess
