@@ -41,7 +41,7 @@ iframe {
   <img
         src="{{ site.url }}{{ site.baseurl }}/images/broadband-light-absorber.png"
         class="img-fluid my-3"
-        alt="Carbon nanostructure based broadband light absorber">
+        alt="Carbon nanostructure based broadband light absorber"/>
 <br/>
 
 </div>
