@@ -1,17 +1,18 @@
-- name: Dr. Richard Feynman
-  photo: headshot.jpg
-  info: Richard C. Tolman Professor, California Institute of Technology
-  email: richard@university.edu
-  github: https://github.com/
-  researchgate: https://www.researchgate.net/
-  scholar: https://scholar.google.com/citations?user=B7vSqZsAAAAJ
+- name: Dr. Thuy-Kieu Truong
+  photo: profile.png
+  info: Thuy-Kieu Truong
+  email: 05vinamilk@gmail.com
+  github: https://github.com/KieuTruong
+  researchgate: https://www.researchgate.net/profile/Kieu-Truong?ev=hdr_xprf
+  scholar: https://scholar.google.com/citations?user=OCnQzOQAAAAJ&hl=en
   cv: cv/cv.pdf
   # Change the items in "education" you have (up to 6)
   education:
     [
-      "(1942) Ph.D. Physics, Princeton University",
-      "(1939) B.S. Physics, Massachusetts Institute of Technology",
+      "(2014-2019) Ph.D. Energy Science, Sungkyunkwan University, Korea",
+      "(2011 – 2013) M.S. Advanced Material Science and Engineering, Sungkyunkwan University, Korea",
+      "(2005-2009) B.Sc. Material Science with Honor, Science University, VNU, Vietnam"
     ]
 
   educationshort:
-    ["(1942) Ph.D. Physics, Princeton", "(1939) B.S. Physics, MIT"]
+    ["(2018) Ph.D. Energy Science, SKKU", "(2013) M.S. Advanced Material Science and Engineering, SKKU", "2009 B.Sc. Material Science, VNU"]
