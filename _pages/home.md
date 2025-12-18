@@ -16,7 +16,7 @@ I am particularly interested in translating fundamental insights into practical,
 <div class="container">
 <div class="row">
 <center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" width="100%"/><br/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/current research interest.png" width="100%"/><br/>
 My research interest. <br/>
 
 </center>
