@@ -39,7 +39,7 @@ iframe {
   <h4>Carbon nanostructure–based broadband light absorber</h4>
 
   <img
-        src="{{ site.url }}{{ site.baseurl }}/images/broadband-light-absorber.png"
+        src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png"
         class="img-fluid my-3"
         alt="Carbon nanostructure based broadband light absorber"/>
 <br/>
