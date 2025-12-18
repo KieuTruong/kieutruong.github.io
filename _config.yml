@@ -29,14 +29,10 @@ contact: >
 
 # Pages shown in navbar
 nav_pages:
-  - name: about
-  - name: publications
-  - name: talks
   - name: research
-  #- name: software
-  #- name: team
+  - name: publications
   - name: teaching
-  - name: cV
+  - name: CV
 
 include:
   - .htaccess
