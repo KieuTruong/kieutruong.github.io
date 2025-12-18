@@ -33,18 +33,15 @@ iframe {
 ## Research
 
 <div class="jumbotron">
-<div class="col-md-12 col-sm-12">
-<h4>Carbon nanostructure based broadband light absorber</h4>
+ <div class="row">
+  <div class="col-12 text-center">
 
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
-My research interest <br/>
+  <h4>Carbon nanostructure–based broadband light absorber</h4>
 
-</center>
-</div>
-</div>
+  <img
+        src="{{ site.url }}{{ site.baseurl }}/images/broadband-light-absorber.png"
+        class="img-fluid my-3"
+        alt="Carbon nanostructure based broadband light absorber">
 <br/>
 
 </div>
