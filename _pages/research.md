@@ -35,7 +35,7 @@ iframe {
 <div class="jumbotron">
 
 <div class="col-12 text-center">
-<h4>Carbon nanostructure based broadband light absorber</h4>
+<h4>[Carbon nanostructure based broadband light absorber]</h4>
 
 <div class="container">
 <div class="row">
@@ -53,7 +53,7 @@ iframe {
 <div class="jumbotron">
 
 <div class="col-12 text-center">
-<h4>Aligned CNT sheet for liquid crystal display</h4>
+<h4>[Aligned CNT sheet for liquid crystal display]</h4>
 
 <div class="container">
 <div class="row">
@@ -72,7 +72,7 @@ iframe {
 <div class="jumbotron">
 
 <div class="col-12 text-center">
-<h4>CNT fibers for smart actuators</h4>
+<h4>[CNT fibers for smart actuators]</h4>
 
 <div class="container">
 <div class="row">
