@@ -9,7 +9,7 @@ permalink: /
 
 <p>
 
-#### Welcome to my academic webpage
+Welcome to my academic webpage.<br/>
 
 I am Thuy-Kieu Truong (Kieu), a Postdoctoral Researcher in Materials Science and Energy Engineering, with research interests centered on carbon nanostructure–based materials for energy storage and conversion, advanced electrocatalysts for sustainable hydrogen production, and optothermal/photothermal materials.<br/>
 
