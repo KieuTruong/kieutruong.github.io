@@ -59,6 +59,18 @@ permalink: /about/
 </div>
 {% endif %}
 
+{% if site.data.peer_review %}
+
+<div class="jumbotron">
+  <h3>Students and Mentoring</h3>
+  <ul>
+    {% for student in site.data.peer_review %}
+      <li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
 {% if site.data.people %}
 
 <div class="jumbotron">
