@@ -59,7 +59,7 @@ permalink: /about/
 </div>
 {% endif %}
 
-{% if site.data.peer_review %}
+{% if site.data.peer_reviews %}
 
 <div class="jumbotron">
   <h3>Peer Review Activities</h3>
