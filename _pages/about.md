@@ -64,7 +64,7 @@ permalink: /about/
 <div class="jumbotron">
   <h3>Peer Review Activities</h3>
   <ul>
-    {% for student in site.data.peer_review %}
+    {% for peer_review in site.data.peer_reviews %}
       <li>{{ peer_review.name }}, {{ peer_review.type }} ({{ peer_review.role }}, {{ peer_review.year }})</li>
     {% endfor %}
   </ul>
