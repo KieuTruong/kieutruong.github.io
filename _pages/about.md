@@ -62,10 +62,10 @@ permalink: /about/
 {% if site.data.peer_review %}
 
 <div class="jumbotron">
-  <h3>Students and Mentoring</h3>
+  <h3>Peer Review Activities</h3>
   <ul>
     {% for student in site.data.peer_review %}
-      <li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
+      <li>{{ peer_review.name }}, {{ peer_review.type }} ({{ peer_review.role }}, {{ peer_review.year }})</li>
     {% endfor %}
   </ul>
 </div>
