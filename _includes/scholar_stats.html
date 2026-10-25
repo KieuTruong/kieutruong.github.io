@@ -1,0 +1,192 @@
+{% assign gs = site.data.scholar %}
+{% assign gs_max = 0 %}
+{% for y in gs.per_year %}{% if y.count > gs_max %}{% assign gs_max = y.count %}{% endif %}{% endfor %}
+{% assign gs_last = gs.per_year | last %}
+
+<style>
+.gs{
+    --gs-surface:#303030;
+    --gs-tile:#3a3a3a;
+    --gs-bar:#00bc8c;
+    --gs-text:#ffffff;
+    --gs-text-2:#c3c2b7;
+    --gs-text-3:#8f8e88;
+    --gs-grid:#4a4a4a;
+    display:grid;
+    grid-template-columns:minmax(0,5fr) minmax(0,7fr);
+    gap:24px;
+    align-items:stretch;
+}
+.gs-head{
+    grid-column:1 / -1;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.gs-head h3{ margin:0; }
+.gs-head .gs-src{ color:var(--gs-text-3); font-size:0.85em; }
+
+.gs-tiles{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:12px;
+}
+.gs-tile{
+    background:var(--gs-tile);
+    border-radius:8px;
+    padding:16px 14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.gs-tile .gs-label{ color:var(--gs-text-2); font-size:0.85em; }
+.gs-tile .gs-value{
+    color:var(--gs-text);
+    font-size:2.4em;
+    font-weight:700;
+    line-height:1.1;
+    margin:4px 0;
+}
+.gs-tile .gs-sub{ color:var(--gs-text-3); font-size:0.8em; }
+
+.gs-chart{
+    background:var(--gs-tile);
+    border-radius:8px;
+    padding:14px 14px 8px;
+    display:flex;
+    flex-direction:column;
+}
+.gs-chart .gs-label{ color:var(--gs-text-2); font-size:0.85em; margin-bottom:8px; }
+.gs-plot{
+    flex:1;
+    min-height:150px;
+    display:flex;
+    align-items:flex-end;
+    gap:2px;
+    border-bottom:1px solid var(--gs-grid);
+}
+.gs-col{
+    position:relative;
+    flex:1;
+    height:100%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    outline:none;
+    cursor:default;
+}
+.gs-bar{
+    width:70%;
+    max-width:26px;
+    min-height:2px;
+    background:var(--gs-bar);
+    border-radius:4px 4px 0 0;
+    opacity:0.85;
+    transition:opacity .15s;
+}
+.gs-col:hover .gs-bar, .gs-col:focus .gs-bar{ opacity:1; }
+.gs-peak{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    color:var(--gs-text);
+    font-size:0.75em;
+    font-weight:700;
+    white-space:nowrap;
+}
+.gs-tip{
+    position:absolute;
+    bottom:calc(100% + 4px);
+    left:50%;
+    transform:translateX(-50%);
+    background:#111;
+    color:var(--gs-text);
+    border:1px solid var(--gs-grid);
+    border-radius:4px;
+    padding:3px 8px;
+    font-size:0.8em;
+    white-space:nowrap;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .1s;
+    z-index:2;
+}
+.gs-col:hover .gs-tip, .gs-col:focus .gs-tip{ opacity:1; }
+.gs-col:first-child .gs-tip{ left:0; transform:none; }
+.gs-col:last-child .gs-tip{ left:auto; right:0; transform:none; }
+.gs-years{
+    display:flex;
+    gap:2px;
+    margin-top:4px;
+}
+.gs-years span{
+    flex:1;
+    text-align:center;
+    color:var(--gs-text-3);
+    font-size:0.7em;
+}
+.gs-sr{
+    position:absolute;
+    width:1px; height:1px;
+    overflow:hidden;
+    clip:rect(0 0 0 0);
+    white-space:nowrap;
+}
+
+@media (max-width:768px){
+    .gs{ grid-template-columns:minmax(0,1fr); }
+}
+@media (max-width:576px){
+    .gs-tile .gs-value{ font-size:1.8em; }
+    .gs-years span:nth-child(even){ visibility:hidden; }
+}
+</style>
+
+<div class="gs" markdown="0">
+  <div class="gs-head">
+    <h3>Citation metrics</h3>
+    <a class="gs-src" href="{{ gs.profile }}" target="_blank">Google Scholar · updated {{ gs.updated }}</a>
+  </div>
+
+  <div class="gs-tiles">
+    <div class="gs-tile">
+      <span class="gs-label">Citations</span>
+      <span class="gs-value">{{ gs.citations }}</span>
+      <span class="gs-sub">{{ gs.citations_since }} since {{ gs.since_year }}</span>
+    </div>
+    <div class="gs-tile">
+      <span class="gs-label">h-index</span>
+      <span class="gs-value">{{ gs.h_index }}</span>
+      <span class="gs-sub">{{ gs.h_index_since }} since {{ gs.since_year }}</span>
+    </div>
+    <div class="gs-tile">
+      <span class="gs-label">i10-index</span>
+      <span class="gs-value">{{ gs.i10_index }}</span>
+      <span class="gs-sub">{{ gs.i10_index_since }} since {{ gs.since_year }}</span>
+    </div>
+  </div>
+
+  <div class="gs-chart">
+    <span class="gs-label">Citations per year</span>
+    <div class="gs-plot" aria-hidden="true">
+      {% for y in gs.per_year %}
+      {% assign pct = y.count | times: 100.0 | divided_by: gs_max %}
+      <div class="gs-col">
+        <div class="gs-bar" style="height:{{ pct }}%"></div>
+        {% if y.count == gs_max %}<span class="gs-peak" style="bottom:calc({{ pct }}% + 2px)">{{ y.count }}</span>{% endif %}
+        <span class="gs-tip">{{ y.year }}: {{ y.count }} citations{% if y.year == gs_last.year %} (to date){% endif %}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="gs-years" aria-hidden="true">
+      {% for y in gs.per_year %}<span>'{{ y.year | modulo: 100 | prepend: "0" | slice: -2, 2 }}</span>{% endfor %}
+    </div>
+    <table class="gs-sr">
+      <caption>Citations per year</caption>
+      <tr><th>Year</th><th>Citations</th></tr>
+      {% for y in gs.per_year %}<tr><td>{{ y.year }}</td><td>{{ y.count }}</td></tr>{% endfor %}
+    </table>
+  </div>
+</div>

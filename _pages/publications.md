@@ -16,6 +16,10 @@ years: [2016, 2017, 2018, 2019, 2020, 2021]
 }
 </style>
 
+<div class="jumbotron" markdown="0">
+{% include scholar_stats.html %}
+</div>
+
 <div class="jumbotron">
 ### Preprints
 {% bibliography --query @unpublished %}
@@ -35,3 +39,6 @@ years: [2016, 2017, 2018, 2019, 2020, 2021]
 ### Refereed conference proceedings
 {% bibliography --query @inproceedings %}
 </div>
+
+<!-- Dimensions citation badges (one script for every badge on the page) -->
+<script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>

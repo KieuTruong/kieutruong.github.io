@@ -1,0 +1,28 @@
+# Google Scholar metrics - updated automatically every week by
+# .github/workflows/jekyll.yml (_scripts/update_scholar.py).
+# You can still edit these numbers by hand; the next successful update overwrites them.
+profile: https://scholar.google.com/citations?user=OCnQzOQAAAAJ&hl=en
+updated: October 2026
+citations: 560
+h_index: 15
+i10_index: 19
+# "Since" column on Scholar
+since_year: 2021
+citations_since: 436
+h_index_since: 12
+i10_index_since: 14
+# Citations per year (the bar chart on your Scholar profile)
+per_year:
+  - {year: 2014, count: 3}
+  - {year: 2015, count: 14}
+  - {year: 2016, count: 9}
+  - {year: 2017, count: 17}
+  - {year: 2018, count: 25}
+  - {year: 2019, count: 24}
+  - {year: 2020, count: 30}
+  - {year: 2021, count: 35}
+  - {year: 2022, count: 32}
+  - {year: 2023, count: 24}
+  - {year: 2024, count: 85}
+  - {year: 2025, count: 139}
+  - {year: 2026, count: 118}

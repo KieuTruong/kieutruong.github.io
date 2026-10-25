@@ -39,6 +39,11 @@ pre{
         width:120px;
     }
 }
+.pub-dimensions{
+    display:inline-block;
+    vertical-align:middle;
+    margin-bottom:5px;
+}
 .pub-body{
     flex:1;
     min-width:0;
@@ -70,11 +75,18 @@ pre{
 <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank"><button class="btn btn-success btm-sm">PDF</button></a>
 {% endif %}
 
+{% comment %} Bare DOI (10.xxxx/...) whether ref.bib stores it bare or as a doi.org / pubs.acs.org link {% endcomment %}
+{% assign bare_doi = "" %}
+{% if entry.doi %}
+{% assign doi_parts = entry.doi | split: "/10." %}
+{% if doi_parts.size > 1 %}{% assign bare_doi = doi_parts.last | prepend: "10." %}{% else %}{% assign bare_doi = entry.doi %}{% endif %}
+{% endif %}
+
 {% if entry.doi %}
 {% if entry.type == 'unpublished' %}
 <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-primary btm-sm">ARXIV</button></a>
 {% else %}
-<a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank"><button class="btn btn-primary btm-sm">DOI</button></a>
+<a href="{{ bare_doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-primary btm-sm">DOI</button></a>
 {% endif %}
 {% endif %}
 
@@ -84,6 +96,10 @@ pre{
 
 {% if entry.abstract %}
 <button class="btn btn-warning btm-sm"  onclick="toggleAbstract{{entry.key}}()">ABSTRACT</button>
+{% endif %}
+
+{% if entry.type == 'article' and bare_doi != "" %}
+<span class="__dimensions_badge_embed__ pub-dimensions" data-doi="{{ bare_doi }}" data-style="small_rectangle" data-hide-zero-citations="true"></span>
 {% endif %}
 
 {% if entry.cover %}
