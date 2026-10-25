@@ -135,16 +135,19 @@
     white-space:nowrap;
 }
 
-@media (max-width:768px){
+/* Respond to the space the box gets (full page or the narrower home column), not the screen */
+.gs-wrap{ container-type:inline-size; }
+@container (max-width:700px){
     .gs{ grid-template-columns:minmax(0,1fr); }
 }
-@media (max-width:576px){
+@container (max-width:420px){
     .gs-tile .gs-value{ font-size:1.8em; }
     .gs-years span:nth-child(even){ visibility:hidden; }
 }
 </style>
 
-<div class="gs" markdown="0">
+<div class="gs-wrap" markdown="0">
+<div class="gs">
   <div class="gs-head">
     <h3>Citation metrics</h3>
     <a class="gs-src" href="{{ gs.profile }}" target="_blank">Google Scholar · updated {{ gs.updated }}</a>
@@ -189,4 +192,5 @@
       {% for y in gs.per_year %}<tr><td>{{ y.year }}</td><td>{{ y.count }}</td></tr>{% endfor %}
     </table>
   </div>
+</div>
 </div>

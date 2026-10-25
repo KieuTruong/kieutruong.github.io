@@ -17,6 +17,9 @@ My work integrates mechanism-driven materials design, scalable synthesis, and mu
 
 I am particularly interested in translating fundamental insights into practical, durable, and scalable technologies, and I welcome opportunities for collaboration across materials science, energy engineering, and applied physics.
 
+<div class="jumbotron" markdown="0">
+{% include scholar_stats.html %}
+</div>
 
 <div class="container">
 <div class="row">
