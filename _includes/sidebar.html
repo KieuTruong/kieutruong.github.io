@@ -25,6 +25,10 @@
 </div>
 
 <div class="jumbotron">
+  {% include scholar_stats.html compact=true %}
+</div>
+
+<div class="jumbotron">
   <h4>News</h4>
 
   {% for article in site.data.news limit:3 %}

@@ -25,7 +25,7 @@
     flex-wrap:wrap;
     gap:8px;
 }
-.gs-head h3{ margin:0; }
+.gs-head h3, .gs-head h4{ margin:0; }
 .gs-head .gs-src{ color:var(--gs-text-3); font-size:0.85em; }
 
 .gs-tiles{
@@ -141,6 +141,9 @@
     .gs{ grid-template-columns:minmax(0,1fr); }
 }
 @container (max-width:420px){
+    .gs-tiles{ gap:8px; }
+    .gs-tile{ padding:12px 10px; }
+    .gs-tile .gs-label{ white-space:nowrap; }
     .gs-tile .gs-value{ font-size:1.8em; }
     .gs-years span:nth-child(even){ visibility:hidden; }
 }
@@ -149,7 +152,7 @@
 <div class="gs-wrap" markdown="0">
 <div class="gs">
   <div class="gs-head">
-    <h3>Citation metrics</h3>
+    {% if include.compact %}<h4>Citation metrics</h4>{% else %}<h3>Citation metrics</h3>{% endif %}
     <a class="gs-src" href="{{ gs.profile }}" target="_blank">Google Scholar · updated {{ gs.updated }}</a>
   </div>
 
