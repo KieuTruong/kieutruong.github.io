@@ -5,13 +5,13 @@
 
 <style>
 .gs{
-    --gs-surface:#303030;
-    --gs-tile:#3a3a3a;
-    --gs-bar:#00bc8c;
-    --gs-text:#ffffff;
-    --gs-text-2:#c3c2b7;
-    --gs-text-3:#8f8e88;
-    --gs-grid:#4a4a4a;
+    --gs-surface:var(--surface);
+    --gs-tile:var(--surface-2);
+    --gs-bar:var(--accent);
+    --gs-text:var(--text);
+    --gs-text-2:var(--text-2);
+    --gs-text-3:var(--text-3);
+    --gs-grid:var(--border);
     display:grid;
     grid-template-columns:minmax(0,5fr) minmax(0,7fr);
     gap:24px;
@@ -101,7 +101,8 @@
     bottom:calc(100% + 4px);
     left:50%;
     transform:translateX(-50%);
-    background:#111;
+    background:var(--surface);
+    box-shadow:var(--shadow);
     color:var(--gs-text);
     border:1px solid var(--gs-grid);
     border-radius:4px;

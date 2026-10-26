@@ -1,0 +1,44 @@
+# Research topics shown on /research/. Images live in images/research/.
+- tag: Current focus
+  title: Carbon nanostructures for optics & electrocatalysts for clean energy
+  image: research/overview.jpg
+  summary: >-
+    My current work connects two directions: carbon nanostructures engineered to control light,
+    and low-cost electrocatalysts that produce hydrogen efficiently, including directly from seawater.
+  highlights:
+    - Highly aligned CNT sheets acting as both transparent conductors and liquid-crystal alignment layers
+    - Carbon nanofiber coatings on aluminum giving >99% broadband light absorption
+    - Anion–cation doping that turns Ni(OH)<sub>2</sub> amorphous and boosts hydrogen production
+    - Doped quaternary metal phosphides for stable hydrogen evolution in natural seawater
+
+- tag: Optics & photothermal
+  title: Carbon nanostructure–based broadband light absorbers
+  image: research/super-black.jpg
+  summary: >-
+    Two scalable routes to "super-black" materials: a rigid coating for precision optics and a
+    flexible composite for solar-thermal energy conversion.
+  highlights:
+    - "Rigid coating: carbon nanofibers grown by CVD directly on Al(6061) using its embedded nickel; >99% absorption from UV to mid-IR for stray-light suppression in satellite optical baffles"
+    - "Flexible composite: CNTs in a stretchable, 3D-patterned Ecoflex matrix made by solvent-free drop-casting; ~98% absorption from UV to NIR for solar desalination and de-icing"
+
+- tag: Displays
+  title: Aligned CNT sheets for liquid crystal displays
+  image: research/cnt-sheet.jpg
+  summary: >-
+    Turning as-deposited CNT sheets, which suffer from poor adhesion, waviness and protruding tubes,
+    into uniform functional films through multi-step surface engineering.
+  highlights:
+    - Chemical treatments (ethanol wash, HMDS) to improve adhesion to the substrate
+    - A 100 nm SiO<sub>2</sub> overlayer for flatness and electrical insulation
+    - Resulting sheets align liquid crystals and work as homogeneous transparent heaters
+
+- tag: Smart fibers
+  title: CNT yarns for smart actuators and flexible devices
+  image: research/cnt-yarn.jpg
+  summary: >-
+    Yarns twisted from aligned CNT sheets are strong, light, conductive and porous, which makes them
+    a platform for next-generation smart materials.
+  highlights:
+    - "Energy storage: ZnO nanorods coated with Ni–Co hydroxide give a supercapacitor yarn that keeps nearly 100% of its capacity when bent to 160°"
+    - "Flexible superconductors: NbN-coated sheets twisted into yarn that still works when tied in a knot"
+    - "Actuators: paraffin-filled yarns twist when heated, for example to open and close window blinds with daily temperature changes"

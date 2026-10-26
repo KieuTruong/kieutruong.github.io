@@ -1,0 +1,10 @@
+{% comment %} Icon links for a person from _data/pi.yml. Usage: {% include profile_links.html member=member %} {% endcomment %}
+{% assign m = include.member %}
+<div class="social">
+  {% if m.cv %}<a class="btn-accent" href="{{ site.url }}{{ site.baseurl }}/{{ m.cv }}" target="_blank"><i class="fa fa-file-text-o"></i> CV</a>{% endif %}
+  {% if m.email %}<a class="social-icon" href="mailto:{{ m.email }}" title="Email" aria-label="Email"><i class="fa fa-envelope"></i></a>{% endif %}
+  {% if m.scholar %}<a class="social-icon" href="{{ m.scholar }}" target="_blank" title="Google Scholar" aria-label="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
+  {% if m.orcid %}<a class="social-icon" href="{{ m.orcid }}" target="_blank" title="ORCID" aria-label="ORCID"><i class="ai ai-orcid"></i></a>{% endif %}
+  {% if m.researchgate %}<a class="social-icon" href="{{ m.researchgate }}" target="_blank" title="ResearchGate" aria-label="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+  {% if m.github %}<a class="social-icon" href="{{ m.github }}" target="_blank" title="GitHub" aria-label="GitHub"><i class="fa fa-github"></i></a>{% endif %}
+</div>

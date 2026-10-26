@@ -5,9 +5,7 @@ sitemap: false
 permalink: /
 ---
 
-### Welcome
-
-
+## Welcome
 
 Welcome to my academic webpage.
 
@@ -17,17 +15,12 @@ My work integrates mechanism-driven materials design, scalable synthesis, and mu
 
 I am particularly interested in translating fundamental insights into practical, durable, and scalable technologies, and I welcome opportunities for collaboration across materials science, energy engineering, and applied physics.
 
-<div class="container">
-<div class="row">
-<center>
-My research interest <br/>
-<img src="{{ site.url }}{{ site.baseurl }}/images/current research interest.png" width="100%"/><br/>
-</center>
-</div>
-</div>
-<br/>
+<figure class="figure-card" markdown="0">
+  <a href="{{ site.url }}{{ site.baseurl }}/images/research/overview.jpg" target="_blank"><img src="{{ site.url }}{{ site.baseurl }}/images/research/overview.jpg" alt="Overview of research highlights: carbon nanostructures for optics and electrocatalysts for clean energy" loading="lazy"></a>
+  <figcaption>Current research interests: carbon nanostructures for advanced optics and electrocatalysts for clean energy</figcaption>
+</figure>
 
-### About me
+## About me
 
 
 I am a materials scientist specializing in energy materials and electrochemical energy systems.

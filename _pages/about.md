@@ -5,79 +5,77 @@ sitemap: false
 permalink: /about/
 ---
 
-## About
+<h1 class="page-title">About</h1>
 
 {% for member in site.data.pi %}
-
-<div class="jumbotron">
-<div class="row">
-<div class="col-sm-4">
-  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="max-width:250px"/>
+<div class="jumbotron profile-card" markdown="0">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" alt="{{ member.name }}">
+  <div>
+    <h3>{{ member.name }}</h3>
+    <div class="profile-info">{{ member.info }}{% if member.location %} · {{ member.location }}{% endif %}</div>
+    {% include profile_links.html member=member %}
+  </div>
 </div>
-<div class="col-sm-8 col-xs-12">
-  <h3>{{ member.name }}</h3>
-  <h4><i>{{ member.info }}</i></h4>
-  {% if member.email %}<a href="mailto:{{ member.email }}" target="_blank"><i class="fa fa-envelope-square fa-3x"></i></a> {% endif %}
-  {% if member.cv %} <a href="{{ site.url }}{{ site.baseurl }}/{{ member.cv }}" target="_blank"><i class="ai ai-cv-square ai-3x"></i><a> {% endif %}
-  {% if member.scholar %} <a href="{{ member.scholar }}" target="_blank"><i class="ai ai-google-scholar-square ai-3x"></i></a> {% endif %}
-  {% if member.github %} <a href="{{ member.github }}" target="_blank"><i class="fa fa-github-square fa-3x"></i></a> {% endif %}
-  {% if member.researchgate %} <a href="{{ member.researchgate }}" target="_blank"><i class="ai ai-researchgate-square ai-3x"></i></a> {% endif %}
-  {% if member.orcid %} <a href="{{ member.orcid }}" target="_blank"><i class="ai ai-orcid-square fa-3x"></i></a> {% endif %}
 
-  <ul style="overflow: hidden">
+<div class="jumbotron" markdown="0">
+  <h3 class="section-title"><i class="fa fa-graduation-cap"></i> Education</h3>
+  <ul class="timeline">
     {% for education in member.education %}
-      <li>{{ education | replace: "-","&#8211;" }}</li>
+      {% assign edu_date = education | split: ")" | first | remove: "(" %}
+      {% assign edu_text = education | remove_first: "(" | remove_first: edu_date | remove_first: ")" | strip %}
+      <li><span class="tl-date">{{ edu_date | replace: "-", "–" }}</span><span class="tl-text">{{ edu_text }}</span></li>
     {% endfor %}
   </ul>
-
-</div>
-</div>
 </div>
 {% endfor %}
 
+{% comment %} Grants and awards are stored as "YEAR, text [role]"; split them for the timeline {% endcomment %}
 {% if site.data.grants %}
-
-<div class="jumbotron">
-  <h3>Grants</h3>
-  <ul>
+<div class="jumbotron" markdown="0">
+  <h3 class="section-title"><i class="fa fa-flask"></i> Grants</h3>
+  <ul class="timeline">
     {% for grant in site.data.grants %}
-      <li>{{ grant.name }}</li>
+      {% assign g_date = grant.name | split: ", " | first %}
+      {% assign g_rest = grant.name | remove_first: g_date | remove_first: ", " | strip %}
+      {% assign g_text = g_rest | split: " [" | first %}
+      {% assign g_role = "" %}
+      {% if g_rest contains " [" %}{% assign g_role = g_rest | split: " [" | last | remove: "]" %}{% endif %}
+      <li><span class="tl-date">{{ g_date | replace: "-", "–" }}</span><span class="tl-text">{{ g_text }}{% if g_role != "" %} <span class="tl-tag">{{ g_role }}</span>{% endif %}</span></li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
 {% if site.data.awards %}
-
-<div class="jumbotron">
-  <h3>Awards</h3>
-  <ul>
+<div class="jumbotron" markdown="0">
+  <h3 class="section-title"><i class="fa fa-trophy"></i> Awards</h3>
+  <ul class="timeline">
     {% for award in site.data.awards %}
-      <li>{{ award.name | replace: "-","&#8211;" }}</li>
+      {% assign a_date = award.name | split: ", " | first %}
+      {% assign a_text = award.name | remove_first: a_date | remove_first: ", " | strip %}
+      <li><span class="tl-date">{{ a_date }}</span><span class="tl-text">{{ a_text }}</span></li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
 {% if site.data.peer_reviews %}
-
-<div class="jumbotron">
-  <h3>Peer Review Activities</h3>
-  <ul>
+<div class="jumbotron" markdown="0">
+  <h3 class="section-title"><i class="fa fa-pencil-square-o"></i> Peer review</h3>
+  <ul class="timeline">
     {% for peer_review in site.data.peer_reviews %}
-      <li>{{ peer_review.name }}, {{ peer_review.type }} ({{ peer_review.role }}, {{ peer_review.year }})</li>
+      <li><span class="tl-date">{{ peer_review.year }}</span><span class="tl-text">{{ peer_review.role }}, {{ peer_review.name | remove_first: "Journal, " }}</span></li>
     {% endfor %}
   </ul>
 </div>
 {% endif %}
 
 {% if site.data.people %}
-
-<div class="jumbotron">
-  <h3>Students and Mentoring</h3>
-  <ul>
+<div class="jumbotron" markdown="0">
+  <h3 class="section-title"><i class="fa fa-users"></i> Students and mentoring</h3>
+  <ul class="timeline">
     {% for student in site.data.people %}
-      <li>{{ student.name }}, {{ student.location }} ({{ student.degree }}, {{ student.year }})</li>
+      <li><span class="tl-date">{{ student.year }}</span><span class="tl-text">{{ student.name }}, {{ student.degree }}, {{ student.location }}</span></li>
     {% endfor %}
   </ul>
 </div>

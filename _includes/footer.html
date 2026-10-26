@@ -1,27 +1,42 @@
-<br/>
 <section id="footer">
-<div class="container-footer">
-  <div class="panel-footer">
-	  <div class="row">
-		<div class="col-sm-4">
-		    <h5>About</h5>	
-            <p>{{ site.affiliation }}</p>
-		</div>
+  <div class="container-footer">
+    <div class="row">
+      <div class="col-sm-4">
+        <h5>About</h5>
+        <p>{{ site.affiliation }}</p>
+      </div>
 
-		<div class="col-sm-4">
-		    <h5>Contact</h5>	
-            <p>{{ site.contact }}</p>
-		</div>
+      <div class="col-sm-4">
+        <h5>Contact</h5>
+        <p>{{ site.contact }}</p>
+      </div>
 
-		<div class="col-sm-4">
-		    <h5>Coordinates</h5>	
-            <p>{{ site.location }}</p>
-		</div>
-	  </div>
+      <div class="col-sm-4">
+        <h5>Coordinates</h5>
+        <p>{{ site.location }}</p>
+      </div>
+    </div>
 
-      <center><p>&copy {{ "now" | date: "%Y" }} {{site.title | escape }} </p></center>
-	</div>
+    <p class="copyright">&copy; {{ "now" | date: "%Y" }} {{ site.title | escape }}</p>
   </div>
-</div>
+</section>
 
 <script src="{{ "/assets/javascript/bootstrap/bootstrap.bundle.min.js" | relative_url }}"></script>
+<script>
+  // Light/dark toggle (initial theme is applied in head.html)
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // Publication BIB / ABSTRACT panels (buttons rendered by bibtemplate.html)
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-pub-panel]');
+    if (!btn) return;
+    var panel = document.getElementById(btn.getAttribute('data-pub-panel'));
+    var open = panel.hidden;
+    panel.hidden = !open;
+    btn.setAttribute('aria-expanded', open);
+  });
+</script>

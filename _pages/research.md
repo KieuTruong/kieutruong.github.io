@@ -5,84 +5,21 @@ sitemap: false
 permalink: /research/
 ---
 
-<style>
-img{
-  border-radius: 10px;
-}
-.col-md-3 {
-  margin-top:10px;
-  margin-bottom:10px;
-  padding:0px;
-  display:block;
-  overflow:hidden;
-  text-align:center;
-  display: table-cell;
-  background: white;
-  border-radius: 20px;
-  height: auto;
-}
-iframe {
-  margin:0;
-  padding:0;
-  width: 175px;
-  display: inline;
-  vertical-align: middle;
-}
-</style>
+<h1 class="page-title">Research</h1>
+<p class="page-lead">I design carbon nanostructures and electrocatalysts for energy conversion, storage and light management, from mechanism to scalable synthesis. Click any figure to view it full size.</p>
 
-## Research
-
-<div class="jumbotron">
-
-<div class="col-12 text-center">
-<h4>[Carbon nanostructure based broadband light absorber]</h4>
-
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/broadband light absorber.png" width="100%"/><br/>
-
-</center>
-</div>
-</div>
-
-
-</div>
-</div>
-
-<div class="jumbotron">
-
-<div class="col-12 text-center">
-<h4>[Aligned CNT sheet for liquid crystal display]</h4>
-
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/cnt sheet.png" width="100%"/><br/>
-
-
-</center>
-</div>
-</div>
-
-
-</div>
-</div>
-
-<div class="jumbotron">
-
-<div class="col-12 text-center">
-<h4>[CNT fibers for smart actuators]</h4>
-
-<div class="container">
-<div class="row">
-<center>
-<img src="{{ site.url }}{{ site.baseurl }}/images/smart actuators.png" width="100%"/><br/>
-
-
-</center>
-</div>
-</div>
-
-</div>
-</div>
+{% for topic in site.data.research %}
+<article class="jumbotron research-card" markdown="0">
+  <a href="{{ site.url }}{{ site.baseurl }}/images/{{ topic.image }}" target="_blank"><img src="{{ site.url }}{{ site.baseurl }}/images/{{ topic.image }}" alt="{{ topic.title }}" loading="lazy"></a>
+  <div class="research-body">
+    <span class="research-tag">{{ topic.tag }}</span>
+    <h3>{{ topic.title }}</h3>
+    <p>{{ topic.summary }}</p>
+    {% if topic.highlights %}
+    <ul>
+      {% for item in topic.highlights %}<li>{{ item }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>
+{% endfor %}

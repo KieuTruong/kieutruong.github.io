@@ -1,65 +1,9 @@
 ---
 ---
+{% comment %} One publication entry; styles live in _sass/_refresh.scss, panel toggling in footer.html {% endcomment %}
 
-
-<style>
-.btn{
-    margin-bottom:5px;
-    padding-top:0px;
-    padding-bottom:0px;
-    padding-left:15px;
-    padding-right:15px;
-    height:20px
-}
-
-pre{
-    white-space: pre-wrap;  
-    white-space: -moz-pre-wrap; 
-    white-space: -pre-wrap; 
-    white-space: -o-pre-wrap; 
-    word-wrap: break-word; 
-    width:100%; overflow-x:auto;
-}
-
-.pub-row{
-    display:flex;
-    align-items:flex-start;
-    gap:20px;
-    margin-bottom:15px;
-}
-.pub-cover{
-    width:200px;
-    height:auto;
-    border:1px solid #ddd;
-    border-radius:3px;
-    box-shadow:0 1px 4px rgba(0,0,0,0.2);
-}
-@media (max-width:576px){
-    .pub-cover{
-        width:120px;
-    }
-}
-.pub-dimensions{
-    display:inline-block;
-    vertical-align:middle;
-    margin-bottom:5px;
-}
-.pub-body{
-    flex:1;
-    min-width:0;
-}
-</style>
-
-{% if entry.cover %}
-<div class="pub-row">
-<a href="{{ site.baseurl }}/images/{{ entry.cover }}" target="_blank"><img class="pub-cover" src="{{ site.baseurl }}/images/{{ entry.cover }}" alt="Journal cover"></a>
-<div class="pub-body">
-{% endif %}
-
-<div class="text-justify">{{reference}}</div>
-
-<!-- You can use the below to make your name bold -->
-<!-- {{reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' | replace_first: 'Bryngelson, S.', '<b>Bryngelson, S.</b>' }}</div> -->
+{% comment %} Key made safe for use in element IDs {% endcomment %}
+{% assign eid = entry.key | slugify: "raw" | replace: "-", "_" | replace: ".", "_" %}
 
 {% assign bibtest = false %}
 {% if entry.file %}
@@ -71,71 +15,51 @@ pre{
 {% endfor %}
 {% endif %}
 
-{% if bibtest %}
-<a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank"><button class="btn btn-success btm-sm">PDF</button></a>
-{% endif %}
-
 {% comment %} Bare DOI (10.xxxx/...) whether ref.bib stores it bare or as a doi.org / pubs.acs.org link {% endcomment %}
 {% assign bare_doi = "" %}
-{% if entry.doi %}
+{% if entry.doi and entry.doi != "" %}
 {% assign doi_parts = entry.doi | split: "/10." %}
 {% if doi_parts.size > 1 %}{% assign bare_doi = doi_parts.last | prepend: "10." %}{% else %}{% assign bare_doi = entry.doi %}{% endif %}
 {% endif %}
 
-{% if entry.doi %}
+<div class="pub-row">
+{% if entry.cover %}
+<a class="pub-cover-link" href="{{ site.baseurl }}/images/{{ entry.cover }}" target="_blank"><img class="pub-cover" src="{{ site.baseurl }}/images/{{ entry.cover }}" alt="Journal cover" loading="lazy"></a>
+{% endif %}
+<div class="pub-body">
+
+<div class="pub-ref">{{ reference | replace: 'Truong, T.-K.', '<span class="me">Truong, T.-K.</span>' | replace: 'Truong, T. K.', '<span class="me">Truong, T. K.</span>' }}</div>
+
+<div class="pub-actions">
+{% if bibtest %}
+<a class="pub-btn" href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank">PDF</a>
+{% endif %}
+
+{% if bare_doi != "" %}
 {% if entry.type == 'unpublished' %}
-<a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank"><button class="btn btn-primary btm-sm">ARXIV</button></a>
+<a class="pub-btn" href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank">arXiv</a>
 {% else %}
-<a href="{{ bare_doi | prepend: 'https://doi.org/' }}" target="_blank"><button class="btn btn-primary btm-sm">DOI</button></a>
+<a class="pub-btn" href="{{ bare_doi | prepend: 'https://doi.org/' }}" target="_blank">DOI</a>
 {% endif %}
 {% endif %}
 
 {% if entry.type == 'unpublished' or entry.type == 'article' or  entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
-<button class="btn btn-danger btm-sm"  onclick="toggleBibtex{{entry.key}}()">BIB</button>
+<button class="pub-btn" type="button" data-pub-panel="a{{ eid }}" aria-expanded="false">BibTeX</button>
 {% endif %}
 
 {% if entry.abstract %}
-<button class="btn btn-warning btm-sm"  onclick="toggleAbstract{{entry.key}}()">ABSTRACT</button>
+<button class="pub-btn" type="button" data-pub-panel="b{{ eid }}" aria-expanded="false">Abstract</button>
 {% endif %}
 
 {% if entry.type == 'article' and bare_doi != "" %}
 <span class="__dimensions_badge_embed__ pub-dimensions" data-doi="{{ bare_doi }}" data-style="small_rectangle" data-hide-zero-citations="true"></span>
 {% endif %}
-
-{% if entry.cover %}
 </div>
-</div>
-{% endif %}
 
+<div class="pub-panel" id="a{{ eid }}" hidden><pre>{{ entry.bibtex }}</pre></div>
 {% if entry.abstract %}
-<div id="a{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
-</div>
-{% else %}
-<div id="a{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{ entry.bibtex }}</pre>
-</div>
+<div class="pub-panel" id="b{{ eid }}" hidden><pre>{{ entry.abstract }}</pre></div>
 {% endif %}
 
-<div id="b{{entry.key}}" style="display: none; background-color:black; border-radius:5px; padding:10px; margin-bottom:20px;">
-<pre>{{entry.abstract}}</pre>
 </div>
-
-<script>
-function toggleBibtex{{entry.key}}(parameter) {
-    var x= document.getElementById('a{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-function toggleAbstract{{entry.key}}(parameter) {
-    var x= document.getElementById('b{{entry.key}}');
-    if (x.style.display === 'none') {
-        x.style.display = 'block';
-    } else {
-        x.style.display = 'none';
-    }
-}
-</script>
+</div>

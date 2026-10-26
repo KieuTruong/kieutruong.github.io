@@ -2,10 +2,32 @@
 layout: default
 ---
 
-  <div id="homeid" class="col-sm-7 col-xs-12">
-	{{ content }}
+{% for member in site.data.pi %}
+<div class="col-12">
+<section class="hero">
+  <img class="hero-photo" src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" alt="{{ member.name }}">
+  <div>
+    <h1 class="hero-name">{{ member.name }}</h1>
+    <div class="hero-role">
+      {{ member.info }}{% if member.location %}<br><i class="fa fa-map-marker"></i> {{ member.location }}{% endif %}
+    </div>
+    {% if member.keywords %}
+    <div class="chips">
+      {% for keyword in member.keywords %}<span class="chip">{{ keyword }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    {% include profile_links.html member=member %}
   </div>
-  
-  <div id="newsid" class="col-sm-5 col-xs-12" >
-	{% include sidebar.html %}
+</section>
+</div>
+{% endfor %}
+
+<div id="homeid" class="col-lg-7 col-12">
+  <div class="home-main">
+  {{ content }}
   </div>
+</div>
+
+<aside id="newsid" class="col-lg-5 col-12">
+  {% include sidebar.html %}
+</aside>

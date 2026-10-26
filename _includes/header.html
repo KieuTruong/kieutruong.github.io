@@ -1,23 +1,29 @@
+{% if jekyll.environment == 'production' and site.google_tag_manager %}
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.google_tag_manager }}"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+{% endif %}
 
-<nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-md site-nav">
     <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">
-     <img src="{{ site.url }}{{ site.baseurl }}/favicon.ico" width="30" height="30" style="margin-right:5px" class="d-inline-block align-top" alt="">
+     <img src="{{ site.url }}{{ site.baseurl }}/favicon.ico" width="28" height="28" style="margin-right:6px" class="d-inline-block align-top" alt="">
       {{ site.title | escape }}
     </a>
-    <button class="toggler navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fa fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarColor02">
-        <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{{ site.url }}{{ site.baseurl }}/">Home</a>
-            {% for page in site.nav_pages %}       
-                <a class="nav-item nav-link" href="{{ site.url }}{{ site.baseurl }}/{{page.name}}">{{page.name | capitalize }}</a>
+        <div class="navbar-nav ml-auto align-items-md-center">
+            <a class="nav-item nav-link{% if page.url == '/' %} active{% endif %}" href="{{ site.url }}{{ site.baseurl }}/">Home</a>
+            {% for nav in site.nav_pages %}
+                {% assign nav_url = '/' | append: nav.name | append: '/' %}
+                <a class="nav-item nav-link{% if page.url == nav_url %} active{% endif %}" href="{{ site.url }}{{ site.baseurl }}/{{ nav.name }}/">{{ nav.name | capitalize }}</a>
             {% endfor %}
+            <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Switch light/dark mode" title="Switch light/dark mode">
+                <i class="fa fa-moon-o"></i><i class="fa fa-sun-o"></i>
+            </button>
         </div>
     </div>
 </nav>
