@@ -1,7 +1,6 @@
 // Site refresh: light/dark design tokens and components layered on top of the
 // Bootswatch (Darkly) base. Theme is chosen by data-theme on <html>, set in head.html.
 
-:root,
 :root[data-theme="light"] {
   --bg: #f6f7f9;
   --surface: #ffffff;
@@ -20,6 +19,8 @@
   color-scheme: light;
 }
 
+// Dark is the default, also when JavaScript is off and no data-theme is set
+:root,
 :root[data-theme="dark"] {
   --bg: #0f141a;
   --surface: #161d25;
@@ -381,16 +382,25 @@ img { border-radius: 10px; }
 }
 
 // ---------- Publications ----------
+// Numbers come from the list itself; the reversed attribute (set in _config.yml) makes them count down
 ol.bibliography {
-  padding-left: 0;
-  list-style: none;
-  counter-reset: pub;
+  padding-left: 2.6em;
+  list-style: decimal outside;
   margin: 0;
   > li {
     padding: 18px 0;
     border-top: 1px solid var(--border);
     &:first-child { border-top: 0; padding-top: 4px; }
+    &::marker {
+      font-family: $font-sans;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text-3);
+    }
   }
+}
+@media (max-width: 576px) {
+  ol.bibliography { padding-left: 2.1em; }
 }
 .pub-row {
   display: flex;
@@ -407,13 +417,14 @@ ol.bibliography {
   transition: transform .2s;
   &:hover { transform: scale(1.04); }
 }
-.pub-body { flex: 1; min-width: 0; }
+// Baseline alignment makes the list number line up with the first line of the citation
+.pub-body { flex: 1; min-width: 0; align-self: baseline; }
 .pub-ref {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
   i { color: var(--text); }
-  .me { color: var(--accent); font-weight: 700; }
+  .me { color: var(--accent); font-weight: 700; white-space: nowrap; }
 }
 .pub-actions {
   display: flex;

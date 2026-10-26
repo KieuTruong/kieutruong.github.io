@@ -6,7 +6,7 @@ permalink: /publications/
 ---
 
 <h1 class="page-title">Publications</h1>
-<p class="page-lead">Journal articles, patents and conference contributions. My name is highlighted; journal covers open full size.</p>
+<p class="page-lead">Journal articles, patents and conference contributions. My name is highlighted.</p>
 
 <div class="jumbotron" markdown="0">
 {% include scholar_stats.html %}

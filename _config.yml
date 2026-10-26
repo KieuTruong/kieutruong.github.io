@@ -59,6 +59,15 @@ kramdown:
 
 plugins: ["jekyll/scholar"]
 
+# My name as it appears in citations; each form is highlighted on the Publications page
+highlight_names:
+  - "Truong, T.-K."
+  - "Truong, T. K."
+  - "Truong, K. T."
+  - "Truong, K."
+  - "Kieu, T. T."
+  - "Kieu, T."
+
 scholar:
   last_name: Truong
   first_name: [Thuy-Kieu]

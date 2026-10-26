@@ -6,11 +6,11 @@
   <title>{% if page.title %}{{ page.title | escape }} - {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{{ site.description }}">
 
-  <!-- Apply the saved light/dark choice before the page paints (light by default) -->
+  <!-- Apply the saved light/dark choice before the page paints (dark by default) -->
   <script>
     (function () {
-      var theme = 'light';
-      try { theme = localStorage.getItem('theme') || 'light'; } catch (e) {}
+      var theme = 'dark';
+      try { theme = localStorage.getItem('theme') || 'dark'; } catch (e) {}
       document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>

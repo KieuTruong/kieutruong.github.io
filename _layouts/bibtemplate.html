@@ -28,7 +28,7 @@
 {% endif %}
 <div class="pub-body">
 
-<div class="pub-ref">{{ reference | replace: 'Truong, T.-K.', '<span class="me">Truong, T.-K.</span>' | replace: 'Truong, T. K.', '<span class="me">Truong, T. K.</span>' }}</div>
+<div class="pub-ref">{{ reference | highlight_author }}</div>
 
 <div class="pub-actions">
 {% if bibtest %}
