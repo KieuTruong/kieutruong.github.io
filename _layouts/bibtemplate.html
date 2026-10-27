@@ -28,9 +28,15 @@
 {% endif %}
 <div class="pub-body">
 
-<div class="pub-ref">{{ reference | highlight_author }}</div>
+<div class="pub-ref">{{ reference | highlight_author: entry.role }}</div>
 
 <div class="pub-actions">
+{% if entry.role == 'co-first' %}
+<span class="pub-role">Co-first author</span>
+{% elsif entry.role == 'co-corresponding' %}
+<span class="pub-role">Co-corresponding author</span>
+{% endif %}
+
 {% if bibtest %}
 <a class="pub-btn" href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank">PDF</a>
 {% endif %}

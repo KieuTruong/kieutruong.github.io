@@ -6,7 +6,7 @@ permalink: /publications/
 ---
 
 <h1 class="page-title">Publications</h1>
-<p class="page-lead">Journal articles, patents and conference contributions. My name is highlighted.</p>
+<p class="page-lead">Journal articles, patents and conference contributions. My name is highlighted; † marks co-first authorship and * co-corresponding authorship.</p>
 
 <div class="jumbotron" markdown="0">
 {% include scholar_stats.html %}

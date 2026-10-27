@@ -81,7 +81,7 @@ scholar:
   sort_by: year, month
   order: descending
 
-  bibtex_skip_fields: [abstract, month_numeric, cover]
+  bibtex_skip_fields: [abstract, month_numeric, cover, role]
 
   replace_strings: true
   join_strings: true
