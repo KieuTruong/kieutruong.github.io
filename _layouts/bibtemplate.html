@@ -37,6 +37,11 @@
 <span class="pub-role">Co-corresponding author</span>
 {% endif %}
 
+{% comment %} Set earlyview={true} in ref.bib until the paper is assigned to an issue {% endcomment %}
+{% if entry.earlyview %}
+<span class="pub-role">Early View</span>
+{% endif %}
+
 {% if bibtest %}
 <a class="pub-btn" href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank">PDF</a>
 {% endif %}
