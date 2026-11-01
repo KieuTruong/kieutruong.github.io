@@ -1,0 +1,98 @@
+{% assign vs = site.data.visitors %}
+{% assign vs_top = vs.countries | first %}
+
+<style>
+.vs-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:16px;
+}
+.vs-head h4{ margin:0; }
+.vs-head .vs-src{ color:var(--text-3); font-size:0.85em; }
+.vs-tiles{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    margin-bottom:16px;
+}
+.vs-tile{
+    background:var(--surface-2);
+    border-radius:8px;
+    padding:16px 14px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+.vs-tile .vs-label{ color:var(--text-2); font-size:0.85em; }
+.vs-tile .vs-value{
+    color:var(--text);
+    font-size:2.4em;
+    font-weight:700;
+    line-height:1.1;
+    margin:4px 0;
+}
+.vs-tile .vs-sub{ color:var(--text-3); font-size:0.8em; }
+.vs-list{ list-style:none; margin:0; padding:0; }
+.vs-row{
+    display:grid;
+    grid-template-columns:minmax(0,2fr) minmax(0,3fr) 3.5em;
+    align-items:center;
+    gap:10px;
+    padding:4px 0;
+    font-size:0.9em;
+}
+.vs-name{
+    color:var(--text);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+.vs-track{
+    background:var(--surface-2);
+    border-radius:4px;
+    height:8px;
+}
+.vs-bar{
+    display:block;
+    background:var(--accent);
+    border-radius:4px;
+    min-width:2px;
+    height:100%;
+    opacity:0.85;
+}
+.vs-count{ color:var(--text-2); font-variant-numeric:tabular-nums; text-align:right; }
+</style>
+
+<div class="vs">
+<div class="vs-head">
+  <h4>Visitors</h4>
+  <span class="vs-src">GoatCounter · updated {{ vs.updated }}</span>
+</div>
+
+<div class="vs-tiles">
+  <div class="vs-tile">
+    <span class="vs-label">Visits</span>
+    <span class="vs-value">{{ vs.visits }}</span>
+    <span class="vs-sub">since {{ vs.since }}</span>
+  </div>
+  <div class="vs-tile">
+    <span class="vs-label">Countries</span>
+    <span class="vs-value">{{ vs.country_count }}</span>
+    <span class="vs-sub">reached so far</span>
+  </div>
+</div>
+
+<ul class="vs-list">
+  {% for c in vs.countries %}
+  {% assign pct = c.count | times: 100.0 | divided_by: vs_top.count %}
+  <li class="vs-row">
+    <span class="vs-name">{{ c.name | escape }}</span>
+    <span class="vs-track" aria-hidden="true"><span class="vs-bar" style="width:{{ pct }}%"></span></span>
+    <span class="vs-count">{{ c.count }}</span>
+  </li>
+  {% endfor %}
+</ul>
+</div>

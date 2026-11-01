@@ -1,0 +1,6 @@
+# Visitor numbers from GoatCounter - refreshed automatically by
+# .github/workflows/jekyll.yml (_scripts/update_visitors.rb).
+# The home page hides the visitor box while visits is 0.
+visits: 0
+country_count: 0
+countries: []

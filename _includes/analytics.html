@@ -33,3 +33,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     })(window,document,'script','dataLayer','{{ site.google_tag_manager }}');</script>
 <!-- End Google Tag Manager -->
 {% endif %}
+
+{% if site.goatcounter %}
+<!-- GoatCounter -->
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{% endif %}

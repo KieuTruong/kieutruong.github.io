@@ -10,6 +10,9 @@ url: ""
 # google_analytics_4: XXX
 # google_tag_manager: XXX
 
+# GoatCounter site code (the XXX in XXX.goatcounter.com): Counts visitors by country
+goatcounter: kieutruong
+
 # Footer info
 affiliation: >
   Thuy-Kieu Truong<br/>

@@ -14,7 +14,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Rebuilds every Monday to refresh the Google Scholar numbers
+  # Rebuilds every Monday to refresh the Google Scholar and visitor numbers
   schedule:
     - cron: "0 3 * * 1"
 
@@ -55,6 +55,13 @@ jobs:
         run: |
           pip install scholarly
           python _scripts/update_scholar.py
+      - name: Update visitor numbers
+        # Keeps the existing numbers if GoatCounter can't be read
+        continue-on-error: true
+        timeout-minutes: 5
+        run: ruby _scripts/update_visitors.rb
+        env:
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5

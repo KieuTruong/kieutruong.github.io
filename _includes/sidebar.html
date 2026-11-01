@@ -11,3 +11,9 @@
   </ul>
   <p style="margin:14px 0 0"><a class="see-all" href="{{ site.url }}{{ site.baseurl }}/allnews.html">All news <i class="fa fa-arrow-right"></i></a></p>
 </div>
+
+{% if site.data.visitors.visits > 0 %}
+<div class="jumbotron">
+  {% include visitor_stats.html %}
+</div>
+{% endif %}

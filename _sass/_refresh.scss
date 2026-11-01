@@ -519,7 +519,7 @@ ol.bibliography {
 hr { border-color: var(--border); }
 .post-title { font-size: 2rem; }
 .post-meta { color: var(--text-3); font-family: $font-sans; font-size: .9rem; }
-.gs { font-family: $font-sans; }
+.gs, .vs { font-family: $font-sans; }
 .home-main {
   background: var(--surface);
   border: 1px solid var(--border);
