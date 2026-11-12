@@ -1,6 +1,10 @@
 # Visitor numbers from GoatCounter - refreshed automatically by
 # .github/workflows/jekyll.yml (_scripts/update_visitors.rb).
 # The home page hides the visitor box while visits is 0.
-visits: 0
-country_count: 0
-countries: []
+updated: 1 November 2026
+since: November 2026
+visits: 1
+country_count: 1
+# Countries with the most visits
+countries:
+  - {name: "Vietnam", count: 1}
