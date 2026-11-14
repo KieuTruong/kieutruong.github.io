@@ -19,8 +19,9 @@ on:
     - cron: "0 3 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# (contents: write lets the build save refreshed Scholar and visitor numbers)
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -63,6 +64,22 @@ jobs:
         run: ruby _scripts/update_visitors.rb
         env:
           GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+      - name: Save refreshed numbers to the repository
+        # Commits the new numbers so a later failed update falls back to these,
+        # not to old ones. Commits made with GITHUB_TOKEN don't start another run.
+        if: github.ref == 'refs/heads/source'
+        continue-on-error: true
+        run: |
+          git add _data/scholar.yml _data/visitors.yml
+          if git diff --cached --quiet; then
+            echo "Numbers unchanged; nothing to save."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Google Scholar and visitor numbers"
+          git pull --rebase origin source
+          git push origin HEAD:source
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
