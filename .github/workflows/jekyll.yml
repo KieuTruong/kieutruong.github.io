@@ -14,9 +14,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-  # Rebuilds every Monday to refresh the Google Scholar and visitor numbers
+  # Rebuilds every day to refresh the Google Scholar and visitor numbers
   schedule:
-    - cron: "0 3 * * 1"
+    - cron: "0 3 * * *"
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -49,12 +49,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Update Google Scholar metrics
-        # Keeps the existing numbers if Google Scholar blocks the request
+        # Reads the profile page, falls back to SerpAPI if Google blocks it,
+        # and keeps the existing numbers if both fail
         continue-on-error: true
         timeout-minutes: 5
-        run: |
-          pip install scholarly
-          python _scripts/update_scholar.py
+        run: python _scripts/update_scholar.py
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
       - name: Update visitor numbers
         # Keeps the existing numbers if GoatCounter can't be read
         continue-on-error: true
