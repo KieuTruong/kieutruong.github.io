@@ -34,7 +34,9 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    # Pinned: the setup-ruby release below can't install Ruby on ubuntu-latest
+    # since it moved to Ubuntu 26.04, which made every build fail from 16 Nov 2026
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
