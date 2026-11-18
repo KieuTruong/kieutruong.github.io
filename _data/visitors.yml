@@ -3,11 +3,11 @@
 # The home page hides the visitor box while visits is 0.
 updated: 18 November 2026
 since: November 2026
-visits: 163
+visits: 171
 country_count: 10
 # Countries with the most visits
 countries:
-  - {name: "Vietnam", count: 145}
+  - {name: "Vietnam", count: 153}
   - {name: "United States", count: 9}
   - {name: "South Korea", count: 2}
   - {name: "Argentina", count: 1}
