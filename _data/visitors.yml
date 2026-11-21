@@ -1,17 +1,17 @@
 # Visitor numbers from GoatCounter - refreshed automatically by
 # .github/workflows/jekyll.yml (_scripts/update_visitors.rb).
 # The home page hides the visitor box while visits is 0.
-updated: 20 November 2026
+updated: 21 November 2026
 since: November 2026
-visits: 193
-country_count: 10
+visits: 207
+country_count: 11
 # Countries with the most visits
 countries:
-  - {name: "Vietnam", count: 172}
+  - {name: "Vietnam", count: 183}
   - {name: "United States", count: 11}
+  - {name: "France", count: 3}
   - {name: "Bangladesh", count: 2}
   - {name: "South Korea", count: 2}
   - {name: "Argentina", count: 1}
   - {name: "Brazil", count: 1}
   - {name: "Ethiopia", count: 1}
-  - {name: "Morocco", count: 1}
